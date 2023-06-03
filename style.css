@@ -1,4 +1,6 @@
 body {
   background: #3d3d3d;
-  font-family: Helvetica, Arial, Sans-Serif;
+  /* font-family: Helvetica, Arial, Sans-Serif; */
+  padding: 0;
+  margin: 0;
 }

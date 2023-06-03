@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import useSWR from 'swr'
-import { Auth, Card, Typography, Space, Button, Icon } from '@supabase/ui'
+import { Auth } from '@supabase/ui'
+import { AppBar, Box, Container, Toolbar, Typography, Button, Card, CardContent, Grid, Tabs, Tab, List, ListItem, CardActions } from '@mui/material';
+
 import { supabase } from '../lib/initSupabase'
 import { useEffect, useState } from 'react'
 
@@ -41,78 +43,83 @@ const Index = () => {
     }
   }, [])
 
-  const View = () => {
-    if (!user)
-      return (
-        <Space direction="vertical" size={8}>
-          <div>
-            <img
-              src="https://app.supabase.io/img/supabase-dark.svg"
-              width="96"
-            />
-            <Typography.Title level={3}>
-              Welcome to Supabase Auth
-            </Typography.Title>
-          </div>
-          <Auth
-            supabaseClient={supabase}
-            providers={['google', 'github']}
-            view={authView}
-            socialLayout="horizontal"
-            socialButtonSize="xlarge"
-          />
-        </Space>
-      )
-
-    return (
-      <Space direction="vertical" size={6}>
-        {authView === 'update_password' && (
-          <Auth.UpdatePassword supabaseClient={supabase} />
-        )}
-        {user && (
-          <>
-            <Typography.Text>You're signed in</Typography.Text>
-            <Typography.Text strong>Email: {user.email}</Typography.Text>
-
-            <Button
-              icon={<Icon type="LogOut" />}
-              type="outline"
-              onClick={() => supabase.auth.signOut()}
-            >
-              Log out
-            </Button>
-            {error && (
-              <Typography.Text danger>Failed to fetch user!</Typography.Text>
-            )}
-            {data && !error ? (
-              <>
-                <Typography.Text type="success">
-                  User data retrieved server-side (in API route):
-                </Typography.Text>
-
-                <Typography.Text>
-                  <pre>{JSON.stringify(data, null, 2)}</pre>
-                </Typography.Text>
-              </>
-            ) : (
-              <div>Loading...</div>
-            )}
-
-            <Typography.Text>
-              <Link href="/profile">SSR example with getServerSideProps</Link>
-            </Typography.Text>
-          </>
-        )}
-      </Space>
-    )
-  }
-
   return (
-    <div style={{ maxWidth: '420px', margin: '96px auto' }}>
-      <Card>
-        <View />
-      </Card>
-    </div>
+    <Container sx={{p: 4}} >
+      <Typography color="primary" variant="h4" component="div" sx={{mb: 4}}>
+        Welcome to Parts Central
+      </Typography>
+      <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
+        We've got the parts you need
+      </Typography>
+
+      <Grid container 
+        spacing={2}
+      >
+
+        <Grid item xs={12} sm={6} md={4} >
+          <Card sx = {{height: "100%"}}>
+            <CardContent>
+              <Typography variant="h5">Parts Catalog</Typography>
+              <Typography variant="body1">
+
+              </Typography>
+            </CardContent>
+
+            <CardActions>
+              <Link href="/" passHref>
+                <Button variant="text" color="primary">Browse Catalog</Button>
+              </Link>
+            </CardActions>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4} >
+          <Card sx = {{height: "100%"}}>
+            <CardContent>
+              <Typography variant="h5">Suppliers</Typography>
+              <Typography variant="body1">Discover a comprehensive list of reliable and trusted suppliers for all your automotive business needs.</Typography>
+              </CardContent>
+            <CardActions>
+            <Link href="/" passHref>
+                    <Button variant="text" color="primary">Browse Suppliers</Button>
+                  </Link>
+            </CardActions>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={4} >
+          <Card sx = {{height: "100%"}}>
+            <CardContent>
+              <Typography variant="h5">Clients</Typography>
+              <Typography variant="body1"></Typography>
+              </CardContent>
+            <CardActions>
+            <Link href="/" passHref>
+                    <Button variant="text" color="primary">Browse Clients</Button>
+                  </Link>
+            </CardActions>
+          </Card>
+        </Grid>
+
+      </Grid>
+
+      <Typography color="white" variant="h5" component="div" sx={{my: 4}}>
+        About Us
+      </Typography>
+
+      <Tabs>
+        <Tab label="Tab 1" />
+        <Tab label="Tab 2" />
+        <Tab label="Tab 3" />
+      </Tabs>
+
+      <List>
+        <ListItem>Item 1</ListItem>
+        <ListItem>Item 2</ListItem>
+        <ListItem>Item 3</ListItem>
+      </List>
+    </Container>
+
   )
 }
 
