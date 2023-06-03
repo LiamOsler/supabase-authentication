@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
@@ -43,31 +44,37 @@ async function getServerSideProps({ req }) {
 function Navigation() {
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar color="primary">
-          
           <IconButton
             size="large"
             edge="start"
             color="primary"
             aria-label="menu"
-            sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
 
           <Box sx={{ flexGrow: 1 }}>
             <Link href="/" passHref>
-              <Button variant="text" color="primary">Parts Central</Button>
+              <Button variant="text" color="primary">Central Parts</Button>
             </Link>
           </Box>
 
-          <Box>
+          <Box >
             <Link href="/login" passHref>
-              <Button variant="text" color="primary">Login</Button>
+              <IconButton
+                size="large"
+                edge="end"
+                color="primary"
+                aria-label="menu"
+              >
+                <ManageAccountsIcon />
+              </IconButton>
             </Link>
           </Box>
 
+          
         </Toolbar>
       </AppBar>
     </Box>
@@ -77,12 +84,10 @@ function Navigation() {
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
-      <main>
         <Navigation />
         <Auth.UserContextProvider supabaseClient={supabase}>
           <Component {...pageProps} />
         </Auth.UserContextProvider>
-      </main>
     </ThemeProvider>
   )
 }
