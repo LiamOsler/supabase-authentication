@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
@@ -23,8 +24,16 @@ const theme = createTheme({
     secondary: {
       main: '#eeeeee',
     },
+  },
+    typography: {
+      fontFamily: [
+        'courier new',
+        'courier',
+      ].join(',')
+    }
   }
-});
+
+);
 
 import Link from 'next/link'
 
@@ -69,7 +78,7 @@ function Navigation() {
                 color="primary"
                 aria-label="menu"
               >
-                <ManageAccountsIcon />
+                <AccountCircleIcon />
               </IconButton>
             </Link>
           </Box>
