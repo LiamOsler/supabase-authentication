@@ -3,24 +3,13 @@ import useSWR from 'swr'
 import { Auth } from '@supabase/ui'
 import { Container, Typography, Button, IconButton, Card, CardContent, CardActions, CardActionArea, Grid } from '@mui/material';
 import HandymanIcon from '@mui/icons-material/Handyman';
-import HardwareIcon from '@mui/icons-material/Hardware';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import PeopleIcon from '@mui/icons-material/People';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 
 import { supabase } from '../lib/initSupabase'
-
-
-
-// const Index = ({ user }) => {
-
-//   return (
-
-
-// export default Index
 
 
 export default function Index({ user }) {

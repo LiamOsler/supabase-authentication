@@ -67,7 +67,7 @@ function Navigation() {
           <Box sx={{ flexGrow: 1 }}>
             <Link href="/" passHref>
               <Button variant="text" color="primary">
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: "bold" }}>
                   Central Parts
                   </Typography>
               </Button>
