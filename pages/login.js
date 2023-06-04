@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import useSWR from 'swr'
 import { createClient } from '@supabase/supabase-js'
-import { Auth, Card, Typography, Space, Button, Icon } from '@supabase/ui'
+import { Auth, Typography, Space, Button, Icon } from '@supabase/ui'
+import {Container, Card} from '@mui/material';
 import { supabase } from '../lib/initSupabase'
 import { useEffect, useState } from 'react'
 
@@ -45,7 +46,8 @@ const Login = () => {
   const View = () => {
     if (!user)
       return (
-        <Space direction="vertical" size={8}>
+        <Space direction="vertical">
+          <Typography.Text>Sign in or sign up</Typography.Text>
           <Auth
             supabaseClient={supabase}
             // providers={['google', 'github']}
@@ -98,11 +100,11 @@ const Login = () => {
   }
 
   return (
-    <div style={{ maxWidth: '420px', margin: '96px auto' }}>
-      <Card>
+    <Container sx={{mt:10}}>
+      <Card sx= {{p:4}}>
         <View />
       </Card>
-    </div>
+    </Container>
   )
 }
 

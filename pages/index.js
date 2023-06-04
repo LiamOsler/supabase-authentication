@@ -25,11 +25,8 @@ import { supabase } from '../lib/initSupabase'
 
 export default function Index({ user }) {
   return (
-    <Container sx={{p: 4, pt: 10}} >
+    <Container sx={{p: 4, pt: 14}} >
 
-      <Typography color="primary" variant="h4" component="div" sx={{mb: 4}}>
-        Central Parts
-      </Typography>
       <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
         Database
       </Typography>
@@ -57,7 +54,7 @@ export default function Index({ user }) {
                 edge="start"
                 color="primary"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ ml: .1 }}
               >
                 <HandymanIcon fontSize="large" />
               </IconButton>
@@ -86,7 +83,7 @@ export default function Index({ user }) {
                 edge="start"
                 color="primary"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ ml: .1 }}
               >
                 <ReceiptLongIcon fontSize="large" />
               </IconButton>
@@ -116,7 +113,7 @@ export default function Index({ user }) {
                 edge="start"
                 color="primary"
                 aria-label="menu"
-                sx={{ mr: 2 }}
+                sx={{ ml: .1 }}
               >
                 <PeopleIcon fontSize="large" />
               </IconButton>
@@ -159,29 +156,31 @@ export default function Index({ user }) {
                 {
                     user ? (
                       <Link href = "/login" passHref>
-                      <Button variant="text" color="primary">Manage Account</Button>
                         <IconButton
                             size="large"
                             edge="start"
                             color="primary"
                             aria-label="menu"
-                            sx={{ mr: 2 }}
-                          >
+                            sx={{ ml: .1 }}
+                            >
                             <ManageAccountsIcon fontSize="large" />
                           </IconButton>
+                          <Button variant="text" color="primary">Manage Account</Button>
+
                       </Link>
                     ) : (
                       <Link href = "/login" passHref>
-                        <Button variant="text" color="primary">Login</Button>
                         <IconButton
                             size="large"
                             edge="start"
                             color="primary"
                             aria-label="menu"
-                            sx={{ mr: 2 }}
-                          >
+                            sx={{ ml: .1 }}
+                            >
                             <AccountCircleIcon fontSize="large" />
                           </IconButton>
+                          <Button variant="text" color="primary">Login</Button>
+
                       </Link>
                     )
                   }

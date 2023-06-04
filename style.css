@@ -21,6 +21,11 @@ body {
   color: #fff !important;
 }
 
+.sbui-typography-text{
+  color: #fff !important;
+  font-size: larger !important;
+}
+
 a {
   color: unset;
   text-decoration: none;
