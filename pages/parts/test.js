@@ -26,23 +26,74 @@ function Parts(data) {
       <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
         Parts Catalog
       </Typography>
-      {/* {JSON.stringify(parts)} */}
-      <Grid container spacing={2}>
-      {
-        parts ? (
-          <p>Loading</p>
-        ) : (
-            <Grid item xs={12} sm={6} md={4} >
-              <Card>
-              <Box sx={{ display: 'flex' }}>
-                <CircularProgress />
-              </Box>
-              </Card>
-            </Grid>
-        )
-      }
-      </Grid>
 
+      <Grid container spacing={2}>
+        {
+          parts ? (
+            parts.length > 0 ? (
+              parts.map((part) => (
+                <Grid item xs={12} sm={6} md={4} >
+                  <Card>
+                    <CardActionArea>
+                      <CardContent>
+                        <Typography  variant="h5">
+                          {part["Model"]}
+                        </Typography>
+                        <Typography  variant="h6">
+                          {part["Family"]}
+                        </Typography>
+                        <Typography  variant="p">
+                          Cores: {part["Cores"]}
+                        </Typography>
+                        <br/>
+                        <Typography  variant="p">
+                          Threads: {part["Threads"]}
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Grid>
+            ))
+            ):(
+              <Grid item xs={12} sm={6} md={4} >
+                <Card>
+                  <CardContent>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        p: 1,
+                        m: 1,
+                      }}
+                    >
+                    <Typography  variant="h5">
+                      No Parts Found
+                    </Typography>
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+            )
+          ) : (
+              <Grid item xs={12} sm={6} md={4} >
+                <Card>
+                  <CardContent>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        p: 1,
+                        m: 1,
+                      }}
+                    >
+                      <CircularProgress />
+                    </Box>
+                  </CardContent>
+                </Card>
+              </Grid>
+          )
+        }
+      </Grid>
     </Container>
   )
 }
