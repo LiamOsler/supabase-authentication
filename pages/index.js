@@ -17,7 +17,7 @@ export default function Index({ user }) {
     <Container sx={{p: 4, pt: 14}} >
 
       <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
-        Database
+        Database925
       </Typography>
 
       <Grid container spacing={2}>
@@ -27,7 +27,7 @@ export default function Index({ user }) {
           <Link href = "/parts" passHref>
               <CardActionArea>
             <CardContent>
-              <Typography variant="h5">Parts Catalog</Typography>
+              <Typography variant="h5">Parts925</Typography>
               <Typography variant="body1"></Typography>
               </CardContent>
             </CardActionArea>
@@ -44,7 +44,7 @@ export default function Index({ user }) {
               >
                 <HandymanIcon fontSize="large" />
               </IconButton>
-              <Button variant="text" color="primary">Parts Catalog</Button>
+              <Button variant="text" color="primary">Parts925</Button>
 
             </CardActions>
           </Link>
@@ -56,7 +56,7 @@ export default function Index({ user }) {
           <Link href = "/purchaseorders" passHref>
               <CardActionArea>
             <CardContent>
-              <Typography variant="h5">Purchase Orders</Typography>
+              <Typography variant="h5">Purchase_Orders925</Typography>
               <Typography variant="body1"></Typography>
               </CardContent>
             </CardActionArea>
@@ -73,7 +73,7 @@ export default function Index({ user }) {
               >
                 <ReceiptLongIcon fontSize="large" />
               </IconButton>
-              <Button variant="text" color="primary">Purchase Orders</Button>
+              <Button variant="text" color="primary">Purchase_Orders925</Button>
 
             </CardActions>
           </Link>
@@ -86,7 +86,7 @@ export default function Index({ user }) {
           <Link href = "/clients" passHref>
               <CardActionArea>
             <CardContent>
-              <Typography variant="h5">Client List</Typography>
+              <Typography variant="h5">Clients925</Typography>
               <Typography variant="body1"></Typography>
               </CardContent>
             </CardActionArea>
@@ -103,7 +103,7 @@ export default function Index({ user }) {
               >
                 <PeopleIcon fontSize="large" />
               </IconButton>
-              <Button variant="text" color="primary">Client List</Button>
+              <Button variant="text" color="primary">Clients925</Button>
 
             </CardActions>
           </Link>
