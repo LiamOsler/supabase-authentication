@@ -1,21 +1,25 @@
 import Link from 'next/link'
 import { useEffect, useState } from "react";
+import { useRouter } from 'next/router';
 import { CircularProgress, Box, Container, Typography, Button, IconButton, Card, CardContent, CardActions, CardActionArea, Grid } from '@mui/material';
 
-import { supabase } from '../../lib/initSupabase'
+import { supabase } from '../../../lib/initSupabase'
 
 function Parts(data) {
-
+    const router = useRouter();
     const [parts, setParts] = useState(null);
 
     useEffect(() => {
-      getParts();
-    }, []);
+      getPart();
+    }, [router.query.line]);
 
-    async function getParts() {
+    async function getPart() {
+        const query = await router.query.line;
         const { data, error } = await supabase
-            .from("CPU_Lines")
-            .select("Manufacturer, Line");
+            .from("Parts")
+            .select("*")
+            .eq('Line', query)
+            ;
 
       setParts(data);
     }
@@ -25,31 +29,37 @@ function Parts(data) {
       <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
         Parts925
       </Typography>
+      <Typography color="white" variant="h5" component="div" sx={{mb: 4}}>
+        {router.query.line}
+
+      </Typography>
       <Grid container spacing={2}>
-        {
+      {
           parts ? (
             parts.length > 0 ? (
-              parts
-              .sort(function(a, b) {
-                if(a["Line"].toLowerCase() < b["Line"].toLowerCase()) return -1;
-                if(a["Line"].toLowerCase() > b["Line"].toLowerCase()) return 1;
-                return 0;
-               })
-              .map((part) => (
+              parts.map((part) => (
                 <Grid item xs={12} sm={6} md={4} >
                   <Card>
-                    <Link href = {`/parts/cpuline/` + part["Line"]}>
-                        <CardActionArea>
-                          <CardContent>
-                            <Typography  variant="h5">
-                              {part["Manufacturer"]}
-                            </Typography>
-                            <Typography  variant="h6">
-                              {part["Line"]}
-                            </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Link>
+                    <CardActionArea>
+                      <CardContent>
+                        <Typography  variant="h6">
+                          {part["Manufacturer"]}
+                        </Typography>
+                        <Typography  variant="h5">
+                          {part["Model"]}
+                        </Typography>
+                        <Typography  variant="h6">
+                          {part["Family"]}
+                        </Typography>
+                        <Typography  variant="p">
+                          Cores: {part["Cores"]}
+                        </Typography>
+                        <br/>
+                        <Typography  variant="p">
+                          Threads: {part["Threads"]}
+                        </Typography>
+                        </CardContent>
+                    </CardActionArea>
                   </Card>
                 </Grid>
             ))

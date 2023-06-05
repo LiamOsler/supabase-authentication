@@ -68,7 +68,7 @@ function Navigation() {
             <Link href="/" passHref>
               <Button variant="text" color="primary">
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontWeight: "bold" }}>
-                  Central Part
+                  Parts925
                   </Typography>
               </Button>
             </Link>
