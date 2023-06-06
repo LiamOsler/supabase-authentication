@@ -14,8 +14,8 @@ function Parts(data) {
 
     async function getParts() {
         const { data, error } = await supabase
-            .from("CPU_Lines")
-            .select("Manufacturer, Line");
+            .from("CPU_Families")
+            .select("Manufacturer, Family");
 
       setParts(data);
     }
@@ -31,21 +31,21 @@ function Parts(data) {
             parts.length > 0 ? (
               parts
               .sort(function(a, b) {
-                if(a["Line"].toLowerCase() < b["Line"].toLowerCase()) return -1;
-                if(a["Line"].toLowerCase() > b["Line"].toLowerCase()) return 1;
+                if(a["Family"].toLowerCase() < b["Family"].toLowerCase()) return -1;
+                if(a["Family"].toLowerCase() > b["Family"].toLowerCase()) return 1;
                 return 0;
                })
               .map((part) => (
                 <Grid item xs={12} sm={6} md={4} >
                   <Card>
-                    <Link href = {`/parts/cpuline/` + part["Line"]}>
+                    <Link href = {`/parts/cpufamily/` + part["Family"]}>
                         <CardActionArea>
                           <CardContent>
                             <Typography  variant="h5">
                               {part["Manufacturer"]}
                             </Typography>
                             <Typography  variant="h6">
-                              {part["Line"]}
+                              {part["Family"]}
                             </Typography>
                             </CardContent>
                         </CardActionArea>
