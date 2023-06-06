@@ -16,9 +16,9 @@ function Parts(data) {
     async function getPart() {
         const query = await router.query.line;
         const { data, error } = await supabase
-            .from("Parts")
+            .from("CPU_Lines")
             .select("*")
-            .eq('Line', query)
+            .eq('Family', query)
             ;
 
       setParts(data);
@@ -38,25 +38,15 @@ function Parts(data) {
           parts ? (
             parts.length > 0 ? (
               parts.map((part) => (
-                <Grid item xs={12} sm={6} md={4} >
+                <Grid item xs={6} sm={4} md={3} >
                   <Card>
                     <CardActionArea>
                       <CardContent>
                         <Typography  variant="h6">
                           {part["Manufacturer"]}
                         </Typography>
-                        <Typography  variant="h5">
-                          {part["Model"]}
-                        </Typography>
                         <Typography  variant="h6">
-                          {part["Family"]}
-                        </Typography>
-                        <Typography  variant="p">
-                          Cores: {part["Cores"]}
-                        </Typography>
-                        <br/>
-                        <Typography  variant="p">
-                          Threads: {part["Threads"]}
+                          {part["Line"]}
                         </Typography>
                         </CardContent>
                     </CardActionArea>

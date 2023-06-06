@@ -30,21 +30,21 @@ function Parts(data) {
           parts ? (
             parts.length > 0 ? (
               parts
-              .sort(function(a, b) {
-                if(a["Family"].toLowerCase() < b["Family"].toLowerCase()) return -1;
-                if(a["Family"].toLowerCase() > b["Family"].toLowerCase()) return 1;
-                return 0;
-               })
+              // .sort(function(a, b) {
+              //   if(a["Family"].toLowerCase() < b["Family"].toLowerCase()) return -1;
+              //   if(a["Family"].toLowerCase() > b["Family"].toLowerCase()) return 1;
+              //   return 0;
+              //  })
               .map((part) => (
-                <Grid item xs={12} sm={6} md={4} >
+                <Grid item xs={6} sm={4} md={3} >
                   <Card>
                     <Link href = {`/parts/cpufamily/` + part["Family"]}>
                         <CardActionArea>
                           <CardContent>
-                            <Typography  variant="h5">
+                            <Typography  variant="h6">
                               {part["Manufacturer"]}
                             </Typography>
-                            <Typography  variant="h6">
+                            <Typography  variant="body1">
                               {part["Family"]}
                             </Typography>
                             </CardContent>

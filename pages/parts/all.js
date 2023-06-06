@@ -14,8 +14,8 @@ function Parts(data) {
 
     async function getParts() {
       const { data } = await supabase
-        .from("Parts")
-        .select("Manufacturer, Model, Line, Cores, Threads")
+        .from("Parts925")
+        .select("Manufacturer, Product, CPU_Cores, CPU_Threads")  
 
       setParts(data);
     }
@@ -39,17 +39,17 @@ function Parts(data) {
                           {part["Manufacturer"]}
                         </Typography>
                         <Typography  variant="h5">
-                          {part["Model"]}
+                          {part["Product"]}
                         </Typography>
                         <Typography  variant="h6">
                           {part["Family"]}
                         </Typography>
-                        <Typography  variant="p">
-                          Cores: {part["Cores"]}
+                        <Typography  variant="body1">
+                          Cores: {part["CPU_Cores"]}
                         </Typography>
                         <br/>
-                        <Typography  variant="p">
-                          Threads: {part["Threads"]}
+                        <Typography  variant="body1">
+                          Threads: {part["CPU_Threads"]}
                         </Typography>
                         </CardContent>
                     </CardActionArea>
