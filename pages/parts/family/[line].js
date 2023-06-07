@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import { CircularProgress, Box, Container, Typography, Button, IconButton, Card, CardContent, CardActions, CardActionArea, Grid } from '@mui/material';
 
-import { supabase } from '../../../lib/initSupabase'
+import { supabase } from '../../../../lib/initSupabase'
 
 function Parts(data) {
     const router = useRouter();
